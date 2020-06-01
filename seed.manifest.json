@@ -1,0 +1,67 @@
+{
+  "seedVersion": "1.0.0",
+  "job": {
+      "name": "renamer",
+      "jobVersion": "1.0.0",
+      "packageVersion": "1.0.0",
+      "title": "File Renamer",
+      "description": "Renames text files",
+      "tags": ["File processing"],
+      "maintainer": {
+          "name": "Emily Smith",
+          "organization": "AIS",
+          "email": "emily.smith@appliedis.com"
+      },
+      "timeout": 3600,
+      "interface": {
+          "command": "${INPUT_FILE} ${OUTPUT_DIR}",
+          "inputs": {
+              "files": [{
+                  "name": "INPUT_FILE",
+                  "mediaTypes": ["text/plain"],
+                  "multiple": false,
+                  "partial": false,
+                  "required": true
+              }
+            ]
+          },
+          "outputs": {
+              "files": [{
+                  "name": "renamed_file",
+                  "mediaType": "",
+                  "multiple": false,
+                  "pattern": "*_RENAMED*",
+                  "required": true
+              }]
+          }
+      },
+      "resources": {
+          "scalar": [{
+              "name": "cpus",
+              "value": 1,
+              "inputMultiplier": 0
+          }, {
+              "name": "mem",
+              "value": 500,
+              "inputMultiplier": 0
+          }, {
+              "name": "disk",
+              "value": 500,
+              "inputMultiplier": 0
+          }]
+      },
+      "errors": [{
+          "code": 1,
+          "name": "error-name-one",
+          "title": "Error Name",
+          "description": "Error Description",
+          "category": "data"
+      }, {
+          "code": 2,
+          "name": "error-name-two",
+          "title": "Error Name",
+          "description": "Error Description",
+          "category": "job"
+      }]
+  }
+}
